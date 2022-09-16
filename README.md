@@ -1,6 +1,6 @@
-# QTrip
+# QTrip 
 QTrip is a travel website aimed at travelers looking for a multitude of adventures in different cities. 
-
+[LINK - https://sanket-qtrip-frontend.netlify.app/]
 
 # During the course of this project,
 
