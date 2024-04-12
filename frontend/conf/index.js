@@ -1,6 +1,6 @@
 const config = {
-  //   backendEndpoint: "https://sanket-qtrip-dynamic.herokuapp.com",
-  backendEndpoint: "http://localhost:8082",
+  backendEndpoint: "https://qtrip-production.up.railway.app",
+  //   backendEndpoint: "http://localhost:8082",
 };
 
 export default config;
