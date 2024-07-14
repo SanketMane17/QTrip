@@ -1,5 +1,5 @@
 const config = {
-  backendEndpoint: "https://qtrip-production.up.railway.app",
+  backendEndpoint: "https://sanket-qtrip-backend.onrender.com",
   //   backendEndpoint: "http://localhost:8082",
 };
 
