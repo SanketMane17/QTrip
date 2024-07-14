@@ -1,4 +1,3 @@
-
 const express = require("express");
 const cors = require("cors");
 const lowDb = require("lowdb");
@@ -20,6 +19,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = 8082;
+
+app.get("/", (req, res) => {
+  res.json({ success: true, message: "Server is up and running!" });
+});
 
 /*
 [GET API] used in module 1 to fetch data for all cities
@@ -98,7 +101,14 @@ If the reservation is successful, it flips the "available" key to "false" and "r
 */
 app.post("/reservations/new", (req, res) => {
   const reservation = req.body;
-  if (! (reservation.name && reservation.date && reservation.person && reservation.adventure)) {
+  if (
+    !(
+      reservation.name &&
+      reservation.date &&
+      reservation.person &&
+      reservation.adventure
+    )
+  ) {
     return res.status(400).send({
       message: `Invalid data received`,
     });
@@ -114,11 +124,13 @@ app.post("/reservations/new", (req, res) => {
       .find((item) => item.id == req.body.adventure)
       .assign({ reserved: true, available: false })
       .write();
-    const costPerHead = instance.find((item) => item.id == req.body.adventure)
-      .costPerHead;
+    const costPerHead = instance.find(
+      (item) => item.id == req.body.adventure
+    ).costPerHead;
 
-    const adventureName = instance.find((item) => item.id == req.body.adventure)
-      .name;
+    const adventureName = instance.find(
+      (item) => item.id == req.body.adventure
+    ).name;
 
     reservation.name = reservation.name
       .trim()
